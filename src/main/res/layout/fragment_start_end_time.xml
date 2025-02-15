@@ -5,12 +5,12 @@
     android:padding="16dp">
 
     <!-- Startzeit -->
-<!--    <TextView-->
-<!--        android:id="@+id/startTimeLabel"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="167dp"-->
-<!--        android:text="Startzeit"-->
-<!--        android:textSize="18sp" />-->
+    <TextView
+        android:id="@+id/startTimeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Startzeit"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/startTimeEditText"
