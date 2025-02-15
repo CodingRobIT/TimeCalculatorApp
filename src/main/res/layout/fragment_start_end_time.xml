@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="time"
-        android:hint="HH:MM" />
+        android:hint="HH:MM (: nicht vergessen z.b 11:20)" />
 
     <!-- Endzeit -->
     <TextView
@@ -49,27 +49,44 @@
         android:inputType="number"
         android:hint="0" />
 
-    <!-- Zeit berechnen -->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical|start">
+
+        <!-- Start-Button -->
+        <Button
+            android:id="@+id/startButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start" />
+
+        <!-- Platzhalter, um den Abstand zu erzeugen -->
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <!-- Stop-Button -->
+        <Button
+            android:id="@+id/stopButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stop" />
+    </LinearLayout>
+
+    <!-- Berechnen-Button darunter -->
     <Button
         android:id="@+id/calculateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Berechnen" />
+        android:text="Berechnen"
+        android:layout_marginTop="16dp" />
 
-    <!-- Start- und Stopp-Buttons -->
-    <Button
-        android:id="@+id/startButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Start" />
-<!--        android:background="@color/green" />-->
 
-    <Button
-        android:id="@+id/stopButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Stop" />
-<!--        android:background="@color/red" />-->
 
     <!-- Ergebnisanzeige -->
     <TextView
