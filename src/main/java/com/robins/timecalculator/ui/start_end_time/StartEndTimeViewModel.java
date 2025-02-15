@@ -10,7 +10,7 @@ public class StartEndTimeViewModel extends ViewModel {
 
     public StartEndTimeViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is dashboard fragment");
+        mText.setValue("Hier wird später die Start- und Endzeit berechnet");
     }
 
     public LiveData<String> getText() {
