@@ -10,7 +10,7 @@ public class TimeConverterModel extends ViewModel {
 
     public TimeConverterModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mText.setValue("This is Time Calculator fragment");
     }
 
     public LiveData<String> getText() {
