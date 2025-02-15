@@ -8,13 +8,13 @@
     <fragment
         android:id="@+id/navigation_time_calculate"
         android:name="com.robins.timecalculator.ui.time_converter.TimeConvertFragment"
-        android:label="@string/title_home"
+        android:label="@string/title_timeCalculate"
         tools:layout="@layout/fragment_time_convert" />
 
     <fragment
         android:id="@+id/navigation_start_end_time"
         android:name="com.robins.timecalculator.ui.start_end_time.StartEndTimeFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_from_to_time"
         tools:layout="@layout/fragment_start_end_time" />
 
     <fragment
