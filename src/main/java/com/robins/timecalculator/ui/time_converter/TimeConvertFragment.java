@@ -29,9 +29,9 @@ public class TimeConvertFragment extends Fragment {
 
         // Setze Standardwerte
         editTextHours.setText("0");
-        editTextMinutes.setText("0");
-        editTextDecimal.setText("0.00");
-        editTextTotalMinutes.setText("0");
+        editTextMinutes.setText(null);
+        editTextDecimal.setText(null);
+        editTextTotalMinutes.setText(null);
 
         editTextHours.addTextChangedListener(new TextWatcher() {
             @Override
