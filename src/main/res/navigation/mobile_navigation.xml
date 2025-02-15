@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_time_calculate">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.robins.timecalculator.ui.home.HomeFragment"
+        android:id="@+id/navigation_time_calculate"
+        android:name="com.robins.timecalculator.ui.time_converter.TimeConvertFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_time_convert" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.robins.timecalculator.ui.dashboard.DashboardFragment"
+        android:id="@+id/navigation_start_end_time"
+        android:name="com.robins.timecalculator.ui.start_end_time.StartEndTimeFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_start_end_time" />
 
     <fragment
         android:id="@+id/navigation_notifications"

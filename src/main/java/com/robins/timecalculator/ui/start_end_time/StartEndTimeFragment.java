@@ -1,4 +1,4 @@
-package com.robins.timecalculator.ui.dashboard;
+package com.robins.timecalculator.ui.start_end_time;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,14 +12,14 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.robins.timecalculator.databinding.FragmentDashboardBinding;
 
-public class DashboardFragment extends Fragment {
+public class StartEndTimeFragment extends Fragment {
 
     private FragmentDashboardBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DashboardViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+        StartEndTimeViewModel dashboardViewModel =
+                new ViewModelProvider(this).get(StartEndTimeViewModel.class);
 
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

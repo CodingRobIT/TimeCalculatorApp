@@ -1,4 +1,4 @@
-package com.robins.timecalculator.ui.home;
+package com.robins.timecalculator.ui.time_converter;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 import com.robins.timecalculator.R;
 
-public class HomeFragment extends Fragment {
+public class TimeConvertFragment extends Fragment {
 
     private EditText editTextHours, editTextMinutes, editTextDecimal, editTextTotalMinutes;
     private boolean isUpdating = false;
@@ -20,7 +20,7 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_time_convert, container, false);
 
         editTextHours = view.findViewById(R.id.editTextHours);
         editTextMinutes = view.findViewById(R.id.editTextMinutes);

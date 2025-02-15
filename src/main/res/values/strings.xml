@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Time Calculator</string>
     <string name="title_home">Home</string>
+    <string name="title_timeCalculate">Zeit Rechner</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="title_from_to_time">Start End Zeit</string>
 </resources>
