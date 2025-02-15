@@ -10,18 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.robins.timecalculator.databinding.FragmentDashboardBinding;
+import com.robins.timecalculator.databinding.FragmentStartEndTimeBinding;
 
 public class StartEndTimeFragment extends Fragment {
 
-    private FragmentDashboardBinding binding;
+    private FragmentStartEndTimeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         StartEndTimeViewModel dashboardViewModel =
                 new ViewModelProvider(this).get(StartEndTimeViewModel.class);
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = FragmentStartEndTimeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textDashboard;
