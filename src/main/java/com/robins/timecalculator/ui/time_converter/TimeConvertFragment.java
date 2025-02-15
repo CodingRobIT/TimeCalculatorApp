@@ -28,7 +28,7 @@ public class TimeConvertFragment extends Fragment {
         editTextTotalMinutes = view.findViewById(R.id.editTextTotalMinutes);
 
         // Setze Standardwerte
-        editTextHours.setText("0");
+        editTextHours.setText(null);
         editTextMinutes.setText(null);
         editTextDecimal.setText(null);
         editTextTotalMinutes.setText(null);
@@ -41,7 +41,7 @@ public class TimeConvertFragment extends Fragment {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (!isUpdating) {
                     isUpdating = true;
-                    convertFromHHMM(s.toString());
+//                    convertFromHHMM(s.toString());
                     updateCalculation();
                     isUpdating = false;
                 }
@@ -93,7 +93,7 @@ public class TimeConvertFragment extends Fragment {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (!isUpdating) {
                     isUpdating = true;
-                    convertFromMinutes(s.toString());
+                    convertFromTotalMinutes(s.toString());
                     isUpdating = false;
                 }
             }
@@ -134,7 +134,7 @@ public class TimeConvertFragment extends Fragment {
         } catch (Exception ignored) {}
     }
 
-    private void convertFromMinutes(String input) {
+    private void convertFromTotalMinutes(String input) {
         try {
             int totalMinutes = Integer.parseInt(input);
             int hours = totalMinutes / 60;
@@ -145,7 +145,6 @@ public class TimeConvertFragment extends Fragment {
             editTextHours.setText(String.valueOf(hours));
             editTextMinutes.setText(String.valueOf(minutes));
             editTextDecimal.setText(String.format("%.2f", decimalHours));
-            editTextTotalMinutes.setText(String.valueOf(totalMinutes)); // notwendig?
         } catch (Exception ignored) {}
     }
 
