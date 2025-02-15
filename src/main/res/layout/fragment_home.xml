@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editTextHHMM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="h m (z.B. 1h 30m)"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Dezimal (z.B. 1.5)"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editTextMinutes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Minuten (z.B. 90)"
+        android:inputType="number" />
+
+</LinearLayout>
