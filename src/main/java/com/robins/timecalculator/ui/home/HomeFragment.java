@@ -14,7 +14,7 @@ import com.robins.timecalculator.R;
 
 public class HomeFragment extends Fragment {
 
-    private EditText editTextHHMM, editTextDecimal, editTextMinutes;
+    private EditText editTextHours, editTextMinutes, editTextDecimal, editTextTotalMinutes;
     private boolean isUpdating = false;
 
     @Nullable
@@ -22,11 +22,18 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        editTextHHMM = view.findViewById(R.id.editTextHHMM);
-        editTextDecimal = view.findViewById(R.id.editTextDecimal);
+        editTextHours = view.findViewById(R.id.editTextHours);
         editTextMinutes = view.findViewById(R.id.editTextMinutes);
+        editTextDecimal = view.findViewById(R.id.editTextDecimal);
+        editTextTotalMinutes = view.findViewById(R.id.editTextTotalMinutes);
 
-        editTextHHMM.addTextChangedListener(new TextWatcher() {
+        // Setze Standardwerte
+        editTextHours.setText("0");
+        editTextMinutes.setText("0");
+        editTextDecimal.setText("0.00");
+        editTextTotalMinutes.setText("0");
+
+        editTextHours.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
@@ -35,6 +42,24 @@ public class HomeFragment extends Fragment {
                 if (!isUpdating) {
                     isUpdating = true;
                     convertFromHHMM(s.toString());
+                    updateCalculation();
+                    isUpdating = false;
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
+
+        editTextMinutes.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (!isUpdating) {
+                    isUpdating = true;
+                    updateCalculation();
                     isUpdating = false;
                 }
             }
@@ -60,7 +85,7 @@ public class HomeFragment extends Fragment {
             public void afterTextChanged(Editable s) {}
         });
 
-        editTextMinutes.addTextChangedListener(new TextWatcher() {
+        editTextTotalMinutes.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
@@ -102,8 +127,10 @@ public class HomeFragment extends Fragment {
             int hours = totalMinutes / 60;
             int minutes = totalMinutes % 60;
 
-            editTextHHMM.setText(hours + "h " + minutes + "m");
-            editTextMinutes.setText(String.valueOf(totalMinutes));
+            // Stunden und Minuten in die jeweiligen Felder eintragen
+            editTextHours.setText(String.valueOf(hours));
+            editTextMinutes.setText(String.valueOf(minutes));
+            editTextTotalMinutes.setText(String.valueOf(totalMinutes));
         } catch (Exception ignored) {}
     }
 
@@ -114,8 +141,32 @@ public class HomeFragment extends Fragment {
             int minutes = totalMinutes % 60;
             double decimalHours = totalMinutes / 60.0;
 
-            editTextHHMM.setText(hours + "h " + minutes + "m");
+            // Stunden, Minuten und Dezimalwert in die jeweiligen Felder eintragen
+            editTextHours.setText(String.valueOf(hours));
+            editTextMinutes.setText(String.valueOf(minutes));
             editTextDecimal.setText(String.format("%.2f", decimalHours));
+            editTextTotalMinutes.setText(String.valueOf(totalMinutes)); // notwendig?
         } catch (Exception ignored) {}
+    }
+
+    // Methode zur Berechnung der Werte
+    private void updateCalculation() {
+        try {
+            // Stunden und Minuten aus den Feldern holen
+            int hours = Integer.parseInt(editTextHours.getText().toString());
+            int minutes = Integer.parseInt(editTextMinutes.getText().toString());
+
+            // Gesamtminuten berechnen
+            int totalMinutes = (hours * 60) + minutes;
+            editTextTotalMinutes.setText(String.valueOf(totalMinutes));
+
+            // Dezimalwert berechnen
+            double decimal = hours + (minutes / 60.0);
+            editTextDecimal.setText(String.format("%.2f", decimal));
+        } catch (NumberFormatException e) {
+            // Falls keine gültigen Zahlen eingegeben wurden
+            editTextTotalMinutes.setText("");
+            editTextDecimal.setText("");
+        }
     }
 }
