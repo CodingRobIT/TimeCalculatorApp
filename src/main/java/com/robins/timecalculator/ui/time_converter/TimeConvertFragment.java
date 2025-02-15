@@ -151,9 +151,22 @@ public class TimeConvertFragment extends Fragment {
     // Methode zur Berechnung der Werte
     private void updateCalculation() {
         try {
-            // Stunden und Minuten aus den Feldern holen
-            int hours = Integer.parseInt(editTextHours.getText().toString());
-            int minutes = Integer.parseInt(editTextMinutes.getText().toString());
+//            // Stunden und Minuten aus den Feldern holen
+//            int hours = Integer.parseInt(editTextHours.getText().toString());
+//            int minutes = Integer.parseInt(editTextMinutes.getText().toString());
+            // Setze Stunden und Minuten auf 0 für einzel berechnung
+            int hours = 0;
+            int minutes = 0;
+
+            // Wenn Stunden leer sind, auf 0 setzen, sonst den Wert verwenden
+            if (!editTextHours.getText().toString().isEmpty()) {
+                hours = Integer.parseInt(editTextHours.getText().toString());
+            }
+
+            // Wenn Minuten leer sind, auf 0 setzen, sonst den Wert verwenden
+            if (!editTextMinutes.getText().toString().isEmpty()) {
+                minutes = Integer.parseInt(editTextMinutes.getText().toString());
+            }
 
             // Gesamtminuten berechnen
             int totalMinutes = (hours * 60) + minutes;
