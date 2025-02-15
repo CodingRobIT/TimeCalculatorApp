@@ -24,7 +24,7 @@ public class StartEndTimeFragment extends Fragment {
         binding = FragmentStartEndTimeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textDashboard;
+        final TextView textView = binding.textStartEndTime;
         dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
