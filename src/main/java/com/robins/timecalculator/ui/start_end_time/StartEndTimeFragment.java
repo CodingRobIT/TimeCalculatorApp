@@ -70,7 +70,17 @@ public class StartEndTimeFragment extends Fragment {
                 int pauseMinutes = pauseStr.isEmpty() ? 0 : Integer.parseInt(pauseStr);
                 long netMinutes = diffInMinutes - pauseMinutes;
 
-                resultTextView.setText("Gesamtzeit: " + netMinutes + " Minuten");
+                // Berechnung der Stunden und Minuten
+                long hours = netMinutes / 60;
+                long minutes = netMinutes % 60;
+
+                // Berechnung der Dezimalstunden
+                double decimalHours = netMinutes / 60.0;
+
+                // Anzeige der Ergebnisse
+                resultTextView.setText("Gesamtzeit: " + netMinutes + " Minuten\n" +
+                        "Das entspricht: " + hours + " Stunden " + minutes + " Minuten\n" +
+                        "ist in Deziaml: " + String.format("%.2f", decimalHours) + " Dezimalstunden");
             } catch (ParseException e) {
                 Toast.makeText(getContext(), "Fehler beim Parsen der Zeiten.", Toast.LENGTH_SHORT).show();
             }
