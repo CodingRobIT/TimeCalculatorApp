@@ -1,5 +1,6 @@
 package com.robins.timecalculator.ui.time_converter;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -11,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.robins.timecalculator.R;
+
+import java.util.Locale;
 
 public class TimeConvertFragment extends Fragment {
 
@@ -105,21 +108,6 @@ public class TimeConvertFragment extends Fragment {
         return view;
     }
 
-    private void convertFromHHMM(String input) {
-        if (input.contains("h")) {
-            String[] parts = input.split("h");
-            try {
-                int hours = Integer.parseInt(parts[0].trim());
-                int minutes = parts.length > 1 ? Integer.parseInt(parts[1].trim()) : 0;
-                int totalMinutes = hours * 60 + minutes;
-                double decimalHours = hours + minutes / 60.0;
-
-                editTextDecimal.setText(String.format("%.2f", decimalHours));
-                editTextMinutes.setText(String.valueOf(totalMinutes));
-            } catch (Exception ignored) {}
-        }
-    }
-
     private void convertFromDecimal(String input) {
         try {
             double decimal = Double.parseDouble(input);
@@ -134,6 +122,7 @@ public class TimeConvertFragment extends Fragment {
         } catch (Exception ignored) {}
     }
 
+    @SuppressLint("DefaultLocale")
     private void convertFromTotalMinutes(String input) {
         try {
             int totalMinutes = Integer.parseInt(input);
@@ -144,7 +133,7 @@ public class TimeConvertFragment extends Fragment {
             // Stunden, Minuten und Dezimalwert in die jeweiligen Felder eintragen
             editTextHours.setText(String.valueOf(hours));
             editTextMinutes.setText(String.valueOf(minutes));
-            editTextDecimal.setText(String.format("%.2f", decimalHours));
+            editTextDecimal.setText(String.format(Locale.US, "%.2f", decimalHours)); // Locale.US sorgt dafür, dass ein Punkt statt einer Komma verwendet wird
         } catch (Exception ignored) {}
     }
 
@@ -171,7 +160,7 @@ public class TimeConvertFragment extends Fragment {
 
             // Dezimalwert berechnen
             double decimal = hours + (minutes / 60.0);
-            editTextDecimal.setText(String.format("%.2f", decimal));
+            editTextDecimal.setText(String.format(Locale.US, "%.2f", decimal)); // Locale.US sorgt dafür, dass ein Punkt statt einer Komma verwendet wird
         } catch (NumberFormatException e) {
             // Falls keine gültigen Zahlen eingegeben wurden
             editTextTotalMinutes.setText("");
