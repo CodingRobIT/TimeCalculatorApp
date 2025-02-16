@@ -92,7 +92,7 @@ public class StartEndTimeFragment extends Fragment {
                 // Anzeige der Ergebnisse
                 resultTextView.setText("Gesamtzeit: " + netMinutes + " Minuten\n" +
                         "Das entspricht: " + hours + " Stunden " + minutes + " Minuten\n" +
-                        "ist in Dezimal: " + String.format("%.2f", decimalHours) + " Dezimalstunden");
+                        "ist in Dezimalform: " + String.format("%.2f", decimalHours) + " Dezimalstunden");
 
                 // Speichern der Daten
                 saveData();
